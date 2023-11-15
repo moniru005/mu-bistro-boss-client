@@ -15,7 +15,7 @@ const Chef = () => {
           heading={"Chef Recommends"}
         ></SectionTitle>
       </div>
-      <div className="grid grid-cols-3 gap-y-6 mt-12">
+      <div className="grid grid-col-1 md:grid-cols-3 lg:grid-cols-3 lg:gap-y-6 gap-y-4 mt-12 justify-items-center ">
         {
             salad?.slice(0, 3).map(items=> <FoodCard key={items._id} item={items}></FoodCard>)
         }
