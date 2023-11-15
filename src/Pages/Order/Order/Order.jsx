@@ -30,7 +30,7 @@ const Order = () => {
       <Cover img={orderCover} title={"Order Food"}></Cover>
 
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-        <TabList>
+        <TabList className="text-center mt-6 ">
           <Tab>Salad</Tab>
           <Tab>Pizza</Tab>
           <Tab>Soup</Tab>

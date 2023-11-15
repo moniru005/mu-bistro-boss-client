@@ -1,5 +1,6 @@
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { FaQuoteLeft } from "react-icons/fa";
 
 
 // Import Swiper styles
@@ -39,6 +40,7 @@ const Testimonials = () => {
                                 value={review.rating}
                                 readOnly
                             />
+                            <FaQuoteLeft className=" text-4xl mt-6" />
                             <p className="py-8">{review.details}</p>
                             <h3 className="text-2xl text-orange-400">{review.name}</h3>
                         </div>

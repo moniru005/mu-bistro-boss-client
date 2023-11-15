@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProviders";
-import { FaShoppingCart } from 'react-icons/fa';
-import { LuMenu } from 'react-icons/lu';
-import  './Navbar.css';
+import { FaShoppingCart } from "react-icons/fa";
+import { LuMenu } from "react-icons/lu";
+import "./Navbar.css";
 import useCart from "../../../Hooks/useCart";
 
 const NavBar = () => {
@@ -23,37 +23,9 @@ const NavBar = () => {
   const navOptions = (
     <>
       <div className="flex flex-col lg:flex-row md:flex-row items-center">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/menu">Our Menu</Link>
-        </li>
-        <li>
-          <Link to="/order/salad">Order Food</Link>
-        </li>
-        <li>
-          <Link to="/dashboard/cart">
-            <p className=" flex flex-row gap-2 bg-transparent lg:text-white border-none hover:text-black">
-              <FaShoppingCart className="text-xl"></FaShoppingCart>
-              <div className="badge badge-secondary">{cart.length}</div>
-            </p>
-          </Link>
-        </li>
-      
-
-      {user ? (
-        <>
-          <div className="flex flex-row gap-2 items-center">
-          <span>{user?.displayName}</span>
-          <button className="btn btn-sm bg-transparent border-none text-white hover:text-slate-900" onClick={handleLogOut}>Logout</button>
-          </div>
-        </>
-      ) : (
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      )}
+        <li> <Link to="/">Home</Link> </li>
+        <li> <Link to="/menu">Our Menu</Link> </li>
+        <li> <Link to="/order/salad">Order Food</Link> </li>
       </div>
     </>
   );
@@ -76,12 +48,35 @@ const NavBar = () => {
           <a className="btn btn-ghost normal-case text-xl">Bistro Boss</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className=" menu menu-horizontal px-1">
-            {navOptions}
-            </ul>
+          <ul className=" menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          <div className="px-3">
+            <Link to="/dashboard/cart">
+              <p className=" flex flex-row gap-2 bg-transparent lg:text-white border-none hover:text-black">
+                <FaShoppingCart className="text-xl"></FaShoppingCart>
+                <div className="badge badge-secondary">{cart.length}</div>
+              </p>
+            </Link>
+          </div>
+
+          <div>
+            {user ? (
+              <>
+                <div className="flex flex-row gap-2 items-center">
+                  (<span>{user?.displayName}</span>)
+                  <button
+                    className="btn btn-sm bg-transparent border-none text-white hover:text-slate-900"
+                    onClick={handleLogOut}
+                  >
+                    Logout
+                  </button>
+                </div>
+              </>
+            ) : (
+              <li> <Link to="/login">Login</Link> </li>
+            )}
+          </div>
         </div>
       </div>
     </>
