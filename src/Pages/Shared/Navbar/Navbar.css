@@ -1,0 +1,7 @@
+.dropdown ul a{
+    color: black;
+    text-align: left;
+}
+.menu a:hover{
+    background-color: white;
+}
