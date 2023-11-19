@@ -4,7 +4,7 @@ import useMenu from "../../../Hooks/useMenu";
 
 const Chef = () => {
     const [menu] = useMenu();
-    console.log('Chef Menu:', menu);
+    // console.log('Chef Menu:', menu);
     const salad = menu.filter((item) => item.category === "salad");
 
   return (

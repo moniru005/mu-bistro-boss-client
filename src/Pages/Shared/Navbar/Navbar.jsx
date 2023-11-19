@@ -5,6 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { LuMenu } from "react-icons/lu";
 import "./Navbar.css";
 import useCart from "../../../Hooks/useCart";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -13,7 +14,13 @@ const NavBar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        alert("Logout successfully");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "You are Successfully Logged out",
+          showConfirmButton: false,
+          timer: 1500
+        });
       })
       .catch((error) => {
         console.log(error.message);

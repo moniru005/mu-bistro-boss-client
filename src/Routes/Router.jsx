@@ -9,6 +9,11 @@ import PrivateRoute from "./PrivateRoute";
 import Secret from "../Pages/Shared/Secret/Secret";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../Pages/Dashboard/Cart/Cart";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AddItems from "../Pages/Dashboard/AddItems/AddItems";
+import AdminRoute from "./AdminRoute";
+import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
+import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
 
 export const router = createBrowserRouter([
     {
@@ -45,11 +50,33 @@ export const router = createBrowserRouter([
       path: '/dashboard',
       element: <Dashboard></Dashboard>,
       children: [
+        //normal user routes
         {
           path: 'cart',
-          element: <Cart></Cart>
+          element: <PrivateRoute><Cart></Cart></PrivateRoute>
 
-        }
+        },
+
+        //admin only routes
+        {
+          path: '/dashboard/addItems',
+          element: <AdminRoute><AddItems></AddItems></AdminRoute>
+        },
+        {
+          path: '/dashboard/manageItems',
+          element: <AdminRoute><ManageItems></ManageItems> </AdminRoute>
+        },
+        {
+          path: 'updateItem/:id',
+          element: <AdminRoute> <UpdateItem></UpdateItem></AdminRoute>,
+          loader: ({params}) => fetch(`http://localhost:5000/menu/${params.id}`)
+          
+        },
+        {
+          path: 'users',
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+      
       ]
     }
   ]);
