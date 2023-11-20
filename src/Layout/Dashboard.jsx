@@ -70,7 +70,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li className="">
-                <NavLink to="/dashboard/payment">
+                <NavLink to="/dashboard/paymentHistory">
                   <GiMoneyStack /> Payment History
                 </NavLink>
               </li>

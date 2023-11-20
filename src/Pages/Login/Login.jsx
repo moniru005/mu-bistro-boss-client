@@ -122,7 +122,7 @@ const Login = () => {
                 </button>
               </div>
               <div className="form-control mt-6">
-                <button disabled={false} className="btn btn-primary">
+                <button disabled={disabled} className="btn btn-primary">
                   Login
                 </button>
               </div>

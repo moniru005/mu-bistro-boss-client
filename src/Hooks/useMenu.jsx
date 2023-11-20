@@ -7,7 +7,7 @@ const useMenu = () => {
   // const [loading, setLoading] = useState(true);
   const axiosPublic = useAxiosPublic();
   // useEffect(() => {
-  //   fetch("http://localhost:5000/menu")
+  //   fetch("bistro-boss-server-blond-theta.vercel.app/menu")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setMenu(data);

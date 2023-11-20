@@ -2,12 +2,12 @@ import { FaTrashAlt } from "react-icons/fa";
 import useCart from "../../../Hooks/useCart";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cart, refetch] = useCart();
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
   const axios = useAxiosSecure();
-  
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -40,7 +40,15 @@ const Cart = () => {
       <div className="flex flex-row justify-between items-center mb-4 font-medium">
         <h2 className="text-2xl">Items: {cart.length}</h2>
         <h2 className="text-2xl">Total Price: {totalPrice}</h2>
-        <button className="btn bg-orange-400 text-lg text-white ">Pay</button>
+        {cart.length ? (
+          <Link to={`/dashboard/payment`}>
+            <button className="btn bg-orange-400 text-lg text-white ">
+              Pay
+            </button>
+          </Link>
+        ) : (
+          <button disabled className="btn bg-orange-400 text-lg text-white ">Pay</button>
+        )}
       </div>
 
       <div className="overflow-x-auto">
