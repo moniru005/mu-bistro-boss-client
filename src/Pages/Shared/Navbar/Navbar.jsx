@@ -6,9 +6,11 @@ import { LuMenu } from "react-icons/lu";
 import "./Navbar.css";
 import useCart from "../../../Hooks/useCart";
 import Swal from "sweetalert2";
+import useAdmin from "../../../Hooks/useAdmin";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const[isAdmin] = useAdmin();
   const [cart] = useCart();
 
   const handleLogOut = () => {
@@ -33,6 +35,16 @@ const NavBar = () => {
         <li> <Link to="/">Home</Link> </li>
         <li> <Link to="/menu">Our Menu</Link> </li>
         <li> <Link to="/order/salad">Order Food</Link> </li>
+        {
+          // user ? 'true' : 'false'
+          // user ? condition ? 'double true' : 'one true' : 'false'
+        }
+        {
+          user && isAdmin && <li> <Link to="/dashboard/adminHome">Dashboard</Link> </li>
+        }
+        {
+          user && !isAdmin && <li> <Link to="/dashboard/userHome">Dashboard</Link> </li>
+        }
       </div>
     </>
   );

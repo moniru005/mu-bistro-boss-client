@@ -16,6 +16,8 @@ import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
 import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import UserHome from "../Pages/Dashboard/UserHome/UserHome";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
 
 export const router = createBrowserRouter([
     {
@@ -54,6 +56,10 @@ export const router = createBrowserRouter([
       children: [
         //normal user routes
         {
+          path: 'userHome',
+          element: <UserHome></UserHome>
+        },
+        {
           path: 'cart',
           element: <PrivateRoute><Cart></Cart></PrivateRoute>
         },
@@ -68,6 +74,10 @@ export const router = createBrowserRouter([
 
         //admin only routes
         {
+          path: 'adminHome',
+          element: <AdminRoute> <AdminHome></AdminHome> </AdminRoute>
+        },
+        {
           path: '/dashboard/addItems',
           element: <AdminRoute><AddItems></AddItems></AdminRoute>
         },
@@ -78,7 +88,7 @@ export const router = createBrowserRouter([
         {
           path: 'updateItem/:id',
           element: <AdminRoute> <UpdateItem></UpdateItem></AdminRoute>,
-          loader: ({params}) => fetch(`https://bistro-boss-server-blond-theta.vercel.app/menu/${params.id}`)
+          loader: ({params}) => fetch(`https://bistro-boss-server-blond-theta.vercel.appmenu/${params.id}`)
           
         },
         {
