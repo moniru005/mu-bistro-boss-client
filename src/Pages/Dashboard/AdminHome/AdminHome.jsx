@@ -96,13 +96,13 @@ const AdminHome = () => {
 
       <div >
         <div className="grid grid-cols-2 lg:grid-cols-4 divide-x  shadow mt-10">
-          <div className="stat">
+          <div className="stat ">
             <div className="stat-figure text-secondary">
               <FaWallet className="text-3xl text-orange-500"></FaWallet>
             </div>
 
             <div className="stat-title text-xl">Revenue</div>
-            <div className="stat-value">{"$ " + stats?.revenue}</div>
+            <div className="stat-value text-3xl">{"$ " + stats?.revenue}</div>
             <div className="stat-desc">Jan 1st - Feb 1st</div>
           </div>
 
@@ -112,7 +112,7 @@ const AdminHome = () => {
             </div>
 
             <div className="stat-title text-xl">Users</div>
-            <div className="stat-value">{stats?.users}</div>
+            <div className="stat-value text-3xl">{stats?.users}</div>
             <div className="stat-desc">↗︎ 400 (22%)</div>
           </div>
 
@@ -122,7 +122,7 @@ const AdminHome = () => {
             </div>
 
             <div className="stat-title text-xl">Menu Items</div>
-            <div className="stat-value">{stats?.menuItems}</div>
+            <div className="stat-value text-3xl">{stats?.menuItems}</div>
             <div className="stat-desc">↗︎ 400 (22%)</div>
           </div>
 
@@ -132,7 +132,7 @@ const AdminHome = () => {
             </div>
 
             <div className="stat-title text-xl">Orders</div>
-            <div className="stat-value">{stats?.orders}</div>
+            <div className="stat-value text-3xl">{stats?.orders}</div>
             <div className="stat-desc">↘︎ 90 (14%)</div>
           </div>
         </div>
