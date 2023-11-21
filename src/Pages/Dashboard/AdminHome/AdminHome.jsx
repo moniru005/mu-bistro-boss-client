@@ -12,7 +12,6 @@ import {
   CartesianGrid,
   PieChart,
   Pie,
-  ResponsiveContainer,
   Legend,
 } from "recharts";
 
@@ -89,14 +88,14 @@ const AdminHome = () => {
   });
 
   return (
-    <div>
+    <div className="w-full">
       <h2 className="text-3xl">
         <span>Hi, Welcome </span>
         {user?.displayName ? user.displayName : "Back"}
       </h2>
 
       <div >
-        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x shadow mt-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x  shadow mt-10">
           <div className="stat">
             <div className="stat-figure text-secondary">
               <FaWallet className="text-3xl text-orange-500"></FaWallet>
@@ -138,10 +137,10 @@ const AdminHome = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center">
+        <div className="flex flex-col lg:flex-row items-center gap-8">
           <div className="w-1/2">
             <BarChart
-              width={500}
+              width={400}
               height={300}
               data={chartData}
               margin={{
@@ -168,7 +167,10 @@ const AdminHome = () => {
           </div>
 
           <div className="w-1/2">
-            <PieChart width={400} height={400}>
+            <PieChart 
+            width={300} 
+            height={285}
+            >
               <Pie
                 data={pieChartData}
                 cx="50%"
